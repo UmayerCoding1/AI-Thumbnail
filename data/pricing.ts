@@ -1,45 +1,49 @@
 import { IPricing } from "@/types";
 
 export const pricingData: IPricing[] = [
-    {
-        name: "Basic",
-        price: 29,
-        period: "month",
-        features: [
-            "Access to all basic courses",
-            "Community support",
-            "10 practice projects",
-            "Course completion certificate",
-            "Basic code review"
-        ],
-        mostPopular: false
-    },
-    {
-        name: "Pro",
-        price: 79,
-        period: "month",
-        features: [
-            "Access to all Pro courses",
-            "Priority community support",
-            "30 practice projects",
-            "Course completion certificate",
-            "Advance code review",
-            "1-on-1 mentoring sessions",
-            "Job assistance"
-        ],
-        mostPopular: true
-    },
-    {
-        name: "Enterprise",
-        price: 199,
-        period: "month",
-        features: [
-            "Access to all courses",
-            "Dedicated support",
-            "Unlimited projects",
-            "Course completion certificate",
-            "Premium code review"
-        ],
-        mostPopular: false
-    }
+  {
+    name: "Starter",
+    price: 29,
+    period: "month",
+    features: [
+      "50 AI Thumbnails",
+      "Best for starters",
+      "Access to all AI models",
+      "No watermark on downloads",
+      "High-quality",
+      "Commercial usage allowed",
+      "Credits never expire",
+    ],
+    mostPopular: false,
+  },
+  {
+    name: "Pro",
+    price: 79,
+    period: "month",
+    features: [
+      "240 AI Thumbnails",
+      "Best for intermediate",
+      "Access to all AI models",
+      "No watermark on downloads",
+      "High-quality",
+      "Commercial usage allowed",
+      "Credits never expire",
+    ],
+    mostPopular: true,
+  },
+  {
+    name: "Ultra",
+    price: 199,
+    period: "month",
+    features: [
+      "800 AI Thumbnails",
+      "Best for professionals",
+      "Access to all AI models",
+      "No watermark on downloads",
+      "High-quality",
+      "Commercial usage allowed",
+      "Credits never expire",
+    ],
+    mostPopular: false,
+  },
 ];
