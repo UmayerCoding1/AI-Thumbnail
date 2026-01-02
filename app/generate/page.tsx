@@ -1,11 +1,16 @@
+// import { useSearchParams } from 'next/navigation';
+import Generate from '@/components/generate';
 import React from 'react';
 
-const Generate = () => {
+const page =async ({params} : {params: Promise<{id: string}>}) => {
+   const {id} = await params;
+
+  
     return (
         <div>
-            This is generate page
+            <Generate id={id} />
         </div>
     );
 };
 
-export default Generate;
+export default page;
