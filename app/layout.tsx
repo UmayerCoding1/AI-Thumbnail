@@ -1,6 +1,8 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import LenisScroll from "@/components/LenisScroll";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -17,8 +19,14 @@ export default function RootLayout({ children, }: Readonly<{
                 <link rel="preload" href="/assets/background-splash.svg" as="image" />
             </head>
             <body>
+            <Navbar/>
                 <LenisScroll />
-                {children}
+              <main className="mt-20">
+
+                  {children}
+              </main>
+
+                <Footer/>
             </body>
         </html>
     );
