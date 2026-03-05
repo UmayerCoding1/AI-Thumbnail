@@ -1,6 +1,6 @@
 'use client'
-import { useState } from "react";
-import { AspectRatio, IThumbnail, ThumbnailStyle, colorSchemes } from "@/public/assets/assets";
+import { useEffect, useState } from "react";
+import { AspectRatio, IThumbnail, ThumbnailStyle, colorSchemes, dummyThumbnails } from "@/public/assets/assets";
 import Lable from "./lable";
 import AspectRatioSelector from "./aspect-ratio-selector";
 
@@ -11,6 +11,7 @@ import { StyleSelector } from "./style-selector";
 interface LeftPanalProps {
     id: string;
     loading: boolean;
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>;
     title: string
     setTitle: React.Dispatch<React.SetStateAction<string>>;
     additionalDetails: string;
@@ -20,14 +21,33 @@ interface LeftPanalProps {
     aspectRatio: AspectRatio;
     setAspectRatio: React.Dispatch<React.SetStateAction<AspectRatio>>;
 }
-const LeftPanal = ({ id, loading, title, setTitle, additionalDetails, setAdditionalDetails, thumbnail, setThumbnail, aspectRatio, setAspectRatio }: LeftPanalProps) => {
+const LeftPanal = ({ id, loading, setLoading, title, setTitle, additionalDetails, setAdditionalDetails, thumbnail, setThumbnail, aspectRatio, setAspectRatio }: LeftPanalProps) => {
 
     const [colorSchemeId, setColorSchemeId] = useState<string>(colorSchemes[0].id);
     const [style, setStyle] = useState<ThumbnailStyle>('Bold & Graphic');
 
     const [styleDropdownOpen, setStyleDropdownOpen] = useState(false);
 
+    const handleGenerate = async () => { };
 
+    const fetchThumbnail = async () => {
+        if (id) {
+            const thumbnail: any = dummyThumbnails.find((thumbnail) => thumbnail._id === id);
+            setThumbnail(thumbnail);
+            setAdditionalDetails(thumbnail.user_prompt);
+            setTitle(thumbnail.title);
+            setAspectRatio(thumbnail.aspect_ratio);
+            setColorSchemeId(thumbnail.color_scheme);
+            setStyle(thumbnail.style);
+            setLoading(false);
+        }
+    }
+
+    useEffect(() => {
+        if (id) {
+            fetchThumbnail();
+        }
+    }, [id])
 
     return (
         <div className={`sppace-y-6 ${id && 'pointer-events-none'}`}>
@@ -62,7 +82,7 @@ const LeftPanal = ({ id, loading, title, setTitle, additionalDetails, setAdditio
                 </div>
 
                 {/* btn */}
-                {!id && <button className='text-[15px] w-full py-3.5 rounded-xl font-medium bg-linear-to-b from-pink-500 to-pink-600 hover:from-pink-700 disabled:cursor-not-allowed transition-colors'>{loading ? 'Generating...' : 'Generate Thumbnail'}</button>}
+                {!id && <button onClick={handleGenerate} className='text-[15px] w-full py-3.5 rounded-xl font-medium bg-linear-to-b from-pink-500 to-pink-600 hover:from-pink-700 disabled:cursor-not-allowed transition-colors'>{loading ? 'Generating...' : 'Generate Thumbnail'}</button>}
             </div>
         </div>
     )

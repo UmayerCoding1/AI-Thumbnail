@@ -21,6 +21,7 @@ export const PreviewPanal = ({ thumbnail, isLoading, aspectRatio }: PreviewPanal
         if (!thumbnail?.image_url) return;
         window.open(thumbnail.image_url, '_blank');
     }
+    console.log(thumbnail)
     return (
         <div className="relative mx-auto w-full max-w-2xl" >
             <div className={cn('relative overflow-hidden ', aspectClasses[aspectRatio])}>

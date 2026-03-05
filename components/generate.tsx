@@ -23,7 +23,7 @@ const Generate = ({ id }: { id: string }) => {
                 <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-28 lg:pb-8'>
                     <div className='grid lg:grid-cols-[400px_1fr] gap-8'>
                         {/* LEFT PANAL */}
-                        <LeftPanal id={id} loading={loading} title={title} setTitle={setTitle} additionalDetails={additionalDetails} setAdditionalDetails={setAdditionalDetails} thumbnail={thumbnail} setThumbnail={setThumbnail} aspectRatio={aspectRatio} setAspectRatio={setAspectRatio} />
+                        <LeftPanal id={id} loading={loading} setLoading={setLoading} title={title} setTitle={setTitle} additionalDetails={additionalDetails} setAdditionalDetails={setAdditionalDetails} thumbnail={thumbnail} setThumbnail={setThumbnail} aspectRatio={aspectRatio} setAspectRatio={setAspectRatio} />
                         {/* RIGHT PANAL */}
                         <div>
                             <div className="p-6 rounded-2xl bg-white/8 border border-white/12 shadow-xl space-y-6">

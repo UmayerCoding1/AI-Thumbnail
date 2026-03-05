@@ -1,11 +1,12 @@
+import YtPreview from '@/components/yt-preview';
 import React from 'react';
 
-const YtPreview = () => {
+const page = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <YtPreview />
+        </>
     );
 };
 
-export default YtPreview;
+export default page;

@@ -1,11 +1,10 @@
 import React from 'react';
+import MyGenerate from '@/components/my-generate';
 
-const MyGenerate = () => {
+const MyGeneratePage = () => {
     return (
-        <div>
-            
-        </div>
+        <MyGenerate />
     );
 };
 
-export default MyGenerate;
+export default MyGeneratePage;
